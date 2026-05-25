@@ -19,21 +19,21 @@ export function HeroSection() {
           <div className="flex flex-col justify-center space-y-6 text-center lg:text-left">
             <div className="inline-flex items-center justify-center lg:justify-start">
               <span className="rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
-                #1 Trusted Bike Showroom in India
+                Your Trusted Bike Shop
               </span>
             </div>
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-balance">
-              Buy, Sell & Exchange{" "}
-              <span className="text-primary">Trusted</span>{" "}
-              Second-Hand Bikes
+              Buy or Sell Your{" "}
+              <span className="text-primary">Bike</span>{" "}
+              With Confidence
             </h1>
             <p className="max-w-xl mx-auto lg:mx-0 text-lg text-muted-foreground text-pretty">
-              Find quality used bikes near you at the best prices. Every bike is thoroughly inspected and comes with complete documentation.
+              Looking for a good bike at low price? Want to sell your old bike? We are here to help. All bikes checked by experts.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button size="lg" className="gap-2 text-base" asChild>
                 <a href="#featured">
-                  Explore Bikes
+                  See All Bikes
                   <ChevronRight className="h-4 w-4" />
                 </a>
               </Button>
@@ -44,28 +44,28 @@ export function HeroSection() {
                 onClick={handleWhatsApp}
               >
                 <MessageCircle className="h-5 w-5" />
-                Contact on WhatsApp
+                Call Us on WhatsApp
               </Button>
             </div>
             {/* Trust Badges */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 pt-4">
               <div className="flex items-center gap-2">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                  <span className="text-lg font-bold text-primary">500+</span>
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                  <span className="text-xl font-bold text-primary">500+</span>
                 </div>
-                <span className="text-sm text-muted-foreground">Bikes Sold</span>
+                <span className="text-sm text-muted-foreground">Happy Customers</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                  <span className="text-lg font-bold text-primary">4.8</span>
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                  <span className="text-xl font-bold text-primary">5</span>
                 </div>
                 <span className="text-sm text-muted-foreground">Star Rating</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                  <span className="text-lg font-bold text-primary">100%</span>
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                  <span className="text-xl font-bold text-primary">RC</span>
                 </div>
-                <span className="text-sm text-muted-foreground">Verified</span>
+                <span className="text-sm text-muted-foreground">Papers Ready</span>
               </div>
             </div>
           </div>
@@ -79,29 +79,6 @@ export function HeroSection() {
                 alt="Premium second-hand bike"
                 className="relative z-10 w-full h-full object-cover rounded-3xl shadow-2xl"
               />
-              {/* Floating Cards */}
-              <div className="absolute -left-4 top-1/4 z-20 rounded-xl bg-card p-3 shadow-lg border border-border animate-pulse">
-                <div className="flex items-center gap-2">
-                  <div className="h-8 w-8 rounded-full bg-success flex items-center justify-center">
-                    <span className="text-success-foreground text-xs">✓</span>
-                  </div>
-                  <div>
-                    <p className="text-xs font-medium">Verified Seller</p>
-                    <p className="text-xs text-muted-foreground">100% Genuine</p>
-                  </div>
-                </div>
-              </div>
-              <div className="absolute -right-4 bottom-1/4 z-20 rounded-xl bg-card p-3 shadow-lg border border-border">
-                <div className="flex items-center gap-2">
-                  <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
-                    <span className="text-primary-foreground text-xs">₹</span>
-                  </div>
-                  <div>
-                    <p className="text-xs font-medium">Best Prices</p>
-                    <p className="text-xs text-muted-foreground">Save up to 40%</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

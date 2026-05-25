@@ -50,7 +50,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-sm text-muted-foreground">
-              {"India's"} trusted destination for buying, selling, and exchanging quality second-hand bikes. Every bike is verified and comes with complete documentation.
+              {"Hyderabad's"} trusted destination for buying, selling, and exchanging quality second-hand bikes. Every bike is verified and comes with complete documentation.
             </p>
             <Button
               onClick={handleWhatsApp}

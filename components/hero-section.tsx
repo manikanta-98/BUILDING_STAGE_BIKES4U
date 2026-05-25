@@ -19,7 +19,7 @@ export function HeroSection() {
           <div className="flex flex-col justify-center space-y-6 text-center lg:text-left">
             <div className="inline-flex items-center justify-center lg:justify-start">
               <span className="rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
-                Your Trusted Bike Shop
+                Hyderabad&apos;s Trusted Bike Shop
               </span>
             </div>
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-balance">

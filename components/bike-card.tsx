@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Heart, MessageCircle, MapPin, Gauge, Fuel, Calendar, Eye } from "lucide-react"
+import { Heart, MessageCircle, MapPin, Gauge, Fuel, Calendar, Eye, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import type { Bike } from "@/lib/data"
@@ -15,6 +15,7 @@ interface BikeCardProps {
 export function BikeCard({ bike, isHighlighted = false, onHighlight }: BikeCardProps) {
   const [isWishlisted, setIsWishlisted] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const handleWhatsApp = (e: React.MouseEvent) => {
     e.stopPropagation()
@@ -30,6 +31,21 @@ export function BikeCard({ bike, isHighlighted = false, onHighlight }: BikeCardP
     }).format(price)
   }
 
+  const nextImage = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setCurrentImageIndex((prev) => (prev + 1) % bike.images.length)
+  }
+
+  const prevImage = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setCurrentImageIndex((prev) => (prev - 1 + bike.images.length) % bike.images.length)
+  }
+
+  const goToImage = (e: React.MouseEvent, index: number) => {
+    e.stopPropagation()
+    setCurrentImageIndex(index)
+  }
+
   return (
     <div 
       className={`group relative flex flex-col overflow-hidden rounded-2xl border bg-card transition-all duration-300 cursor-pointer ${
@@ -39,19 +55,63 @@ export function BikeCard({ bike, isHighlighted = false, onHighlight }: BikeCardP
       }`}
       onClick={onHighlight}
     >
-      {/* Image Container */}
-      <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
+      {/* Image Container with Slider */}
+      <div className="relative aspect-[4/3] overflow-hidden bg-secondary group/image">
         {!imageLoaded && (
           <div className="absolute inset-0 animate-pulse bg-secondary" />
         )}
-        <img
-          src={bike.image}
-          alt={`${bike.brand} ${bike.name}`}
-          className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 ${
-            imageLoaded ? "opacity-100" : "opacity-0"
-          }`}
-          onLoad={() => setImageLoaded(true)}
-        />
+        
+        {/* Images */}
+        <div className="relative h-full w-full">
+          {bike.images.map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              alt={`${bike.brand} ${bike.name} - Photo ${index + 1}`}
+              className={`absolute inset-0 h-full w-full object-cover transition-all duration-500 ${
+                index === currentImageIndex 
+                  ? "opacity-100 scale-100" 
+                  : "opacity-0 scale-105"
+              }`}
+              onLoad={() => index === 0 && setImageLoaded(true)}
+            />
+          ))}
+        </div>
+
+        {/* Navigation Arrows */}
+        {bike.images.length > 1 && (
+          <>
+            <button
+              onClick={prevImage}
+              className="absolute left-2 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-background/80 backdrop-blur opacity-0 group-hover/image:opacity-100 transition-opacity hover:bg-background"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              onClick={nextImage}
+              className="absolute right-2 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-background/80 backdrop-blur opacity-0 group-hover/image:opacity-100 transition-opacity hover:bg-background"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </>
+        )}
+
+        {/* Dot Indicators */}
+        {bike.images.length > 1 && (
+          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+            {bike.images.map((_, index) => (
+              <button
+                key={index}
+                onClick={(e) => goToImage(e, index)}
+                className={`h-2 w-2 rounded-full transition-all ${
+                  index === currentImageIndex 
+                    ? "bg-white w-4" 
+                    : "bg-white/50 hover:bg-white/75"
+                }`}
+              />
+            ))}
+          </div>
+        )}
         
         {/* Status Badge */}
         <Badge
@@ -85,6 +145,15 @@ export function BikeCard({ bike, isHighlighted = false, onHighlight }: BikeCardP
             {bike.category}
           </Badge>
         </div>
+
+        {/* Image Counter */}
+        {bike.images.length > 1 && (
+          <div className="absolute top-3 left-1/2 -translate-x-1/2">
+            <Badge variant="secondary" className="bg-background/80 backdrop-blur text-xs">
+              {currentImageIndex + 1} / {bike.images.length}
+            </Badge>
+          </div>
+        )}
       </div>
 
       {/* Content */}

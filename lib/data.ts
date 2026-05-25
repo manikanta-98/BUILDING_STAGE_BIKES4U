@@ -10,7 +10,7 @@ export interface Bike {
   location: string
   status: "Available" | "Sold Out"
   category: "Sports" | "Scooter" | "Commuter" | "EV"
-  image: string
+  images: string[]
   description: string
 }
 
@@ -24,10 +24,15 @@ export const bikes: Bike[] = [
     price: 95000,
     kmDriven: 12000,
     fuelType: "Petrol",
-    location: "Mumbai",
+    location: "Hyderabad",
     status: "Available",
     category: "Sports",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=600&h=400&fit=crop"
+    ],
     description: "Well maintained bike with all service records"
   },
   {
@@ -35,14 +40,18 @@ export const bikes: Bike[] = [
     name: "Activa 6G",
     brand: "Honda",
     year: 2023,
-    registrationNumber: "DL-04-CD-5678",
+    registrationNumber: "TS-09-CD-5678",
     price: 72000,
     kmDriven: 5000,
     fuelType: "Petrol",
-    location: "Delhi",
+    location: "Hyderabad",
     status: "Available",
     category: "Scooter",
-    image: "https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=600&h=400&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=600&h=400&fit=crop"
+    ],
     description: "Like new condition, single owner"
   },
   {
@@ -50,14 +59,19 @@ export const bikes: Bike[] = [
     name: "Classic 350",
     brand: "Royal Enfield",
     year: 2021,
-    registrationNumber: "KA-05-EF-9012",
+    registrationNumber: "TS-07-EF-9012",
     price: 145000,
     kmDriven: 18000,
     fuelType: "Petrol",
-    location: "Bangalore",
+    location: "Hyderabad",
     status: "Available",
     category: "Commuter",
-    image: "https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=600&h=400&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=600&h=400&fit=crop"
+    ],
     description: "Iconic bike in excellent condition"
   },
   {
@@ -65,14 +79,18 @@ export const bikes: Bike[] = [
     name: "Ather 450X",
     brand: "Ather",
     year: 2023,
-    registrationNumber: "TN-09-GH-3456",
+    registrationNumber: "TS-10-GH-3456",
     price: 125000,
     kmDriven: 3000,
     fuelType: "Electric",
-    location: "Chennai",
+    location: "Hyderabad",
     status: "Sold Out",
     category: "EV",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=600&h=400&fit=crop"
+    ],
     description: "Smart electric scooter with fast charging"
   },
   {
@@ -80,14 +98,19 @@ export const bikes: Bike[] = [
     name: "Apache RTR 200",
     brand: "TVS",
     year: 2022,
-    registrationNumber: "MH-14-IJ-7890",
+    registrationNumber: "TS-08-IJ-7890",
     price: 105000,
     kmDriven: 15000,
     fuelType: "Petrol",
-    location: "Pune",
+    location: "Hyderabad",
     status: "Available",
     category: "Sports",
-    image: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=600&h=400&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?w=600&h=400&fit=crop"
+    ],
     description: "Racing inspired design, well maintained"
   },
   {
@@ -95,14 +118,18 @@ export const bikes: Bike[] = [
     name: "Jupiter 125",
     brand: "TVS",
     year: 2023,
-    registrationNumber: "GJ-01-KL-2345",
+    registrationNumber: "TS-11-KL-2345",
     price: 65000,
     kmDriven: 4000,
     fuelType: "Petrol",
-    location: "Ahmedabad",
+    location: "Hyderabad",
     status: "Available",
     category: "Scooter",
-    image: "https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=600&h=400&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=600&h=400&fit=crop"
+    ],
     description: "Fuel efficient family scooter"
   },
   {
@@ -110,14 +137,19 @@ export const bikes: Bike[] = [
     name: "FZ-S FI V3",
     brand: "Yamaha",
     year: 2021,
-    registrationNumber: "UP-32-MN-6789",
+    registrationNumber: "TS-05-MN-6789",
     price: 85000,
     kmDriven: 20000,
     fuelType: "Petrol",
-    location: "Lucknow",
+    location: "Hyderabad",
     status: "Available",
     category: "Commuter",
-    image: "https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?w=600&h=400&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=600&h=400&fit=crop"
+    ],
     description: "Stylish commuter with great mileage"
   },
   {
@@ -125,14 +157,18 @@ export const bikes: Bike[] = [
     name: "Ola S1 Pro",
     brand: "Ola",
     year: 2023,
-    registrationNumber: "HR-26-OP-1234",
+    registrationNumber: "TS-12-OP-1234",
     price: 110000,
     kmDriven: 2000,
     fuelType: "Electric",
-    location: "Gurgaon",
+    location: "Hyderabad",
     status: "Available",
     category: "EV",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=600&h=400&fit=crop"
+    ],
     description: "Premium electric scooter with long range"
   }
 ]

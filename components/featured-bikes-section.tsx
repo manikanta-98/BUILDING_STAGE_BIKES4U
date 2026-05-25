@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Search, SlidersHorizontal, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -21,6 +21,18 @@ export function FeaturedBikesSection() {
   const [selectedFuel, setSelectedFuel] = useState<string>("all")
   const [priceRange, setPriceRange] = useState<string>("all")
   const [showFilters, setShowFilters] = useState(false)
+  const [highlightedBikeId, setHighlightedBikeId] = useState<string | null>(null)
+
+  // Close highlight when clicking outside or pressing Escape
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setHighlightedBikeId(null)
+      }
+    }
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [])
 
   const filteredBikes = bikes.filter((bike) => {
     const matchesSearch =
@@ -176,11 +188,25 @@ export function FeaturedBikesSection() {
 
         {/* Bikes Grid */}
         {filteredBikes.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredBikes.map((bike) => (
-              <BikeCard key={bike.id} bike={bike} />
-            ))}
-          </div>
+          <>
+            {/* Backdrop overlay when a bike is highlighted */}
+            {highlightedBikeId && (
+              <div 
+                className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-all duration-300"
+                onClick={() => setHighlightedBikeId(null)}
+              />
+            )}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {filteredBikes.map((bike) => (
+                <BikeCard 
+                  key={bike.id} 
+                  bike={bike} 
+                  isHighlighted={highlightedBikeId === bike.id}
+                  onHighlight={() => setHighlightedBikeId(highlightedBikeId === bike.id ? null : bike.id)}
+                />
+              ))}
+            </div>
+          </>
         ) : (
           <div className="flex flex-col items-center justify-center py-16 text-center">
             <div className="flex h-20 w-20 items-center justify-center rounded-full bg-secondary mb-4">

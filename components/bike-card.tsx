@@ -8,13 +8,16 @@ import type { Bike } from "@/lib/data"
 
 interface BikeCardProps {
   bike: Bike
+  isHighlighted?: boolean
+  onHighlight?: () => void
 }
 
-export function BikeCard({ bike }: BikeCardProps) {
+export function BikeCard({ bike, isHighlighted = false, onHighlight }: BikeCardProps) {
   const [isWishlisted, setIsWishlisted] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
 
-  const handleWhatsApp = () => {
+  const handleWhatsApp = (e: React.MouseEvent) => {
+    e.stopPropagation()
     const message = `Hi! I'm interested in the ${bike.year} ${bike.brand} ${bike.name} (${bike.registrationNumber}) listed at ₹${bike.price.toLocaleString("en-IN")} on BIKES4u.`
     window.open(`https://wa.me/919676499794?text=${encodeURIComponent(message)}`, "_blank")
   }
@@ -28,7 +31,14 @@ export function BikeCard({ bike }: BikeCardProps) {
   }
 
   return (
-    <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:shadow-xl hover:border-primary/50">
+    <div 
+      className={`group relative flex flex-col overflow-hidden rounded-2xl border bg-card transition-all duration-300 cursor-pointer ${
+        isHighlighted 
+          ? "z-50 scale-105 shadow-2xl border-primary ring-4 ring-primary/30" 
+          : "border-border hover:shadow-xl hover:border-primary/50"
+      }`}
+      onClick={onHighlight}
+    >
       {/* Image Container */}
       <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
         {!imageLoaded && (
@@ -56,7 +66,10 @@ export function BikeCard({ bike }: BikeCardProps) {
 
         {/* Wishlist Button */}
         <button
-          onClick={() => setIsWishlisted(!isWishlisted)}
+          onClick={(e) => {
+            e.stopPropagation()
+            setIsWishlisted(!isWishlisted)
+          }}
           className="absolute top-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-background/80 backdrop-blur transition-colors hover:bg-background"
         >
           <Heart
@@ -121,6 +134,7 @@ export function BikeCard({ bike }: BikeCardProps) {
             variant="outline"
             size="sm"
             className="flex-1 gap-1.5"
+            onClick={(e) => e.stopPropagation()}
           >
             <Eye className="h-4 w-4" />
             View Details

@@ -6,7 +6,13 @@
     "number": "TS12EY5770",
     "price": 75000,
     "status": "unsold",
-    "image": ""
+    "description": "Jupiter Blue offers good mileage and is ready for immediate delivery from our showroom.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 2,
@@ -15,7 +21,13 @@
     "number": "TS08KB4171",
     "price": null,
     "status": "unsold",
-    "image": ""
+    "description": "Excellent condition 2023 Activa 125, recently serviced and inspected.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 3,
@@ -24,7 +36,13 @@
     "number": "TS08JR5085",
     "price": null,
     "status": "sold",
-    "image": ""
+    "description": "Pulsar 150 in showroom-ready condition with genuine parts and clear paperwork.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 4,
@@ -33,7 +51,13 @@
     "number": "TS07JK0139",
     "price": 65000,
     "status": "unsold",
-    "image": ""
+    "description": "Reliable 2022 Splendor with smooth ride quality and tidy finish.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 5,
@@ -42,7 +66,13 @@
     "number": "TS08JS8771",
     "price": 85000,
     "status": "unsold",
-    "image": ""
+    "description": "Access 125 — single-owner feel, clean bodywork, and strong engine performance.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 6,
@@ -51,7 +81,13 @@
     "number": "TS08HX6067",
     "price": 65000,
     "status": "unsold",
-    "image": ""
+    "description": "Popular choice: Glamour with balanced performance and everyday comfort.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 7,
@@ -60,7 +96,13 @@
     "number": "TS13EV2383",
     "price": 55000,
     "status": "unsold",
-    "image": ""
+    "description": "2021 Splendor available at AK Bikes with transparent pricing.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 8,
@@ -69,7 +111,13 @@
     "number": "TS09FA8058",
     "price": 90000,
     "status": "unsold",
-    "image": ""
+    "description": "2018 NS 200 Red — well maintained bike with smooth engine and clean condition.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 9,
@@ -78,7 +126,13 @@
     "number": "BAJAJ tr 125",
     "price": 85000,
     "status": "unsold",
-    "image": ""
+    "description": "Pulsar 125 offers good mileage and is ready for immediate delivery from our showroom.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 10,
@@ -87,7 +141,13 @@
     "number": "TS19C5422",
     "price": 45000,
     "status": "unsold",
-    "image": ""
+    "description": "Excellent condition 2016 Splendor Smart, recently serviced and inspected.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 11,
@@ -96,7 +156,13 @@
     "number": "TG080942",
     "price": 85000,
     "status": "unsold",
-    "image": ""
+    "description": "NS 125 in showroom-ready condition with genuine parts and clear paperwork.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 12,
@@ -105,7 +171,13 @@
     "number": "TG09A5452",
     "price": null,
     "status": "sold",
-    "image": ""
+    "description": "Reliable 2024 Activa 6G Blue with smooth ride quality and tidy finish.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 13,
@@ -114,7 +186,13 @@
     "number": "TS13FB4377",
     "price": 85000,
     "status": "unsold",
-    "image": ""
+    "description": "Activa Smart — single-owner feel, clean bodywork, and strong engine performance.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 14,
@@ -123,7 +201,13 @@
     "number": "TS08HJ0365",
     "price": 90000,
     "status": "unsold",
-    "image": ""
+    "description": "Popular choice: Pulsar 220F with balanced performance and everyday comfort.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 15,
@@ -132,7 +216,13 @@
     "number": "TS08FS9996",
     "price": 100000,
     "status": "unsold",
-    "image": ""
+    "description": "2018 Dominar RED available at AK Bikes with transparent pricing.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 16,
@@ -141,7 +231,13 @@
     "number": "TS08FG8792",
     "price": 110000,
     "status": "unsold",
-    "image": ""
+    "description": "2017 Dominar — well maintained bike with smooth engine and clean condition.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 17,
@@ -150,7 +246,13 @@
     "number": "TG07G6723",
     "price": 70000,
     "status": "unsold",
-    "image": ""
+    "description": "HF Deluxe offers good mileage and is ready for immediate delivery from our showroom.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 18,
@@ -159,7 +261,13 @@
     "number": "TG07H4113",
     "price": 70000,
     "status": "unsold",
-    "image": ""
+    "description": "Excellent condition 2024 Platina, recently serviced and inspected.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 19,
@@ -168,7 +276,13 @@
     "number": "TS07KD7688",
     "price": 70000,
     "status": "unsold",
-    "image": ""
+    "description": "Shine 100 in showroom-ready condition with genuine parts and clear paperwork.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 20,
@@ -177,7 +291,13 @@
     "number": "TS08JT3098",
     "price": 150000,
     "status": "unsold",
-    "image": ""
+    "description": "Reliable 2023 Jawa 42 with smooth ride quality and tidy finish.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 21,
@@ -186,7 +306,13 @@
     "number": "TS08JZ0679",
     "price": null,
     "status": "sold",
-    "image": ""
+    "description": "TVS Raider — single-owner feel, clean bodywork, and strong engine performance.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 22,
@@ -195,7 +321,13 @@
     "number": "TS07GH1607",
     "price": null,
     "status": "sold",
-    "image": ""
+    "description": "Popular choice: RC 200 with balanced performance and everyday comfort.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 23,
@@ -204,7 +336,13 @@
     "number": "TS15FA0658",
     "price": 100000,
     "status": "unsold",
-    "image": ""
+    "description": "2018 Thunderbird available at AK Bikes with transparent pricing.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 24,
@@ -213,7 +351,13 @@
     "number": "TS15FP6395",
     "price": 70000,
     "status": "unsold",
-    "image": ""
+    "description": "2023 Splendor — well maintained bike with smooth engine and clean condition.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 25,
@@ -222,7 +366,13 @@
     "number": "TG07M3814",
     "price": 75000,
     "status": "unsold",
-    "image": ""
+    "description": "Splendor offers good mileage and is ready for immediate delivery from our showroom.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 26,
@@ -231,7 +381,13 @@
     "number": "TS08HM0893",
     "price": 169000,
     "status": "unsold",
-    "image": ""
+    "description": "Excellent condition 2021 Classic Red, recently serviced and inspected.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 27,
@@ -240,7 +396,13 @@
     "number": "TG07F5492",
     "price": 85000,
     "status": "unsold",
-    "image": ""
+    "description": "Shine 125 in showroom-ready condition with genuine parts and clear paperwork.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 28,
@@ -249,7 +411,13 @@
     "number": "TG08HD0825",
     "price": null,
     "status": "unsold",
-    "image": ""
+    "description": "Reliable 2024 Fasino with smooth ride quality and tidy finish.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 29,
@@ -258,7 +426,13 @@
     "number": "TG07A0097",
     "price": 85000,
     "status": "unsold",
-    "image": ""
+    "description": "TVS Raider — single-owner feel, clean bodywork, and strong engine performance.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 30,
@@ -267,7 +441,13 @@
     "number": "TS07KB3510",
     "price": null,
     "status": "unsold",
-    "image": ""
+    "description": "Popular choice: NS 200 RED with balanced performance and everyday comfort.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 31,
@@ -276,7 +456,13 @@
     "number": "TS08JJ4895",
     "price": 75000,
     "status": "unsold",
-    "image": ""
+    "description": "2022 ACTIVA 125 available at AK Bikes with transparent pricing.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 32,
@@ -285,7 +471,13 @@
     "number": "TS08FZ7810",
     "price": 55000,
     "status": "sold",
-    "image": ""
+    "description": "2018 ACTIVA 5G — well maintained bike with smooth engine and clean condition.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 33,
@@ -294,7 +486,13 @@
     "number": "TS08HW0541",
     "price": null,
     "status": "unsold",
-    "image": ""
+    "description": "ACTIVA offers good mileage and is ready for immediate delivery from our showroom.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 34,
@@ -303,7 +501,13 @@
     "number": "TS08JS8687",
     "price": 199999,
     "status": "unsold",
-    "image": ""
+    "description": "Excellent condition 2023 Himalayan, recently serviced and inspected.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 35,
@@ -312,7 +516,13 @@
     "number": "TS08KC6054",
     "price": 180000,
     "status": "unsold",
-    "image": ""
+    "description": "Rc 200 in showroom-ready condition with genuine parts and clear paperwork.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 36,
@@ -321,7 +531,13 @@
     "number": "TS07GT8996",
     "price": 160000,
     "status": "sold",
-    "image": ""
+    "description": "Reliable 2019 Apache 310 with smooth ride quality and tidy finish.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 37,
@@ -330,7 +546,13 @@
     "number": "TS08HZ8946",
     "price": null,
     "status": "unsold",
-    "image": ""
+    "description": "CT-110 — single-owner feel, clean bodywork, and strong engine performance.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 38,
@@ -339,7 +561,13 @@
     "number": "TS08GS9451",
     "price": 180000,
     "status": "unsold",
-    "image": ""
+    "description": "Popular choice: KTM Adventure with balanced performance and everyday comfort.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 39,
@@ -348,7 +576,13 @@
     "number": "SRINU",
     "price": null,
     "status": "unsold",
-    "image": ""
+    "description": "2019 NS 200 Yellow available at AK Bikes with transparent pricing.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 40,
@@ -357,7 +591,13 @@
     "number": "SAI HEMADRI HEIGHTS",
     "price": null,
     "status": "unsold",
-    "image": ""
+    "description": "2020 NS 200 Grey — well maintained bike with smooth engine and clean condition.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 41,
@@ -366,7 +606,13 @@
     "number": "TG07D6204",
     "price": 85000,
     "status": "unsold",
-    "image": ""
+    "description": "Sp 125 offers good mileage and is ready for immediate delivery from our showroom.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 42,
@@ -375,7 +621,13 @@
     "number": "TG08G1704",
     "price": 85000,
     "status": "unsold",
-    "image": ""
+    "description": "Excellent condition 2024 Activa white, recently serviced and inspected.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 43,
@@ -384,7 +636,13 @@
     "number": "ram koti",
     "price": null,
     "status": "unsold",
-    "image": ""
+    "description": "Jupiter in showroom-ready condition with genuine parts and clear paperwork.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 44,
@@ -393,7 +651,13 @@
     "number": "TS07JF9014",
     "price": 75000,
     "status": "unsold",
-    "image": ""
+    "description": "Reliable 2022 Glamour with smooth ride quality and tidy finish.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 45,
@@ -402,7 +666,13 @@
     "number": "ts12ez0157",
     "price": null,
     "status": "sold",
-    "image": ""
+    "description": "Activa — single-owner feel, clean bodywork, and strong engine performance.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 46,
@@ -411,7 +681,13 @@
     "number": "TS08HH2887",
     "price": 90000,
     "status": "unsold",
-    "image": ""
+    "description": "Popular choice: XPULSE Red with balanced performance and everyday comfort.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 47,
@@ -420,7 +696,13 @@
     "number": "TS06FF8741",
     "price": 100000,
     "status": "unsold",
-    "image": ""
+    "description": "2023 NS 160 white available at AK Bikes with transparent pricing.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 48,
@@ -429,7 +711,13 @@
     "number": "TS07JB6502",
     "price": 140000,
     "status": "unsold",
-    "image": ""
+    "description": "2023 RS 200 — well maintained bike with smooth engine and clean condition.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 49,
@@ -438,7 +726,13 @@
     "number": "Ts07JL5438",
     "price": 120000,
     "status": "unsold",
-    "image": ""
+    "description": "MT-15 offers good mileage and is ready for immediate delivery from our showroom.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 50,
@@ -447,7 +741,13 @@
     "number": "TG07M1845",
     "price": null,
     "status": "sold",
-    "image": ""
+    "description": "Excellent condition 2024 Hunter Rebel blue 2024, recently serviced and inspected.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 51,
@@ -456,7 +756,13 @@
     "number": "TG07AP9518",
     "price": null,
     "status": "sold",
-    "image": ""
+    "description": "Hunter rebel Red black in showroom-ready condition with genuine parts and clear paperwork.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 52,
@@ -465,7 +771,13 @@
     "number": "TS08JV5072",
     "price": null,
     "status": "sold",
-    "image": ""
+    "description": "Reliable 2023 STANdard 2023 with smooth ride quality and tidy finish.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 53,
@@ -474,7 +786,13 @@
     "number": "AP39KA2734",
     "price": 170000,
     "status": "unsold",
-    "image": ""
+    "description": "CLASSIC 350 — single-owner feel, clean bodywork, and strong engine performance.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 54,
@@ -483,7 +801,13 @@
     "number": "TS13EX2713",
     "price": null,
     "status": "unsold",
-    "image": ""
+    "description": "Popular choice: Electra with balanced performance and everyday comfort.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 55,
@@ -492,7 +816,13 @@
     "number": "TS09FW2101",
     "price": 150000,
     "status": "unsold",
-    "image": ""
+    "description": "2022 duke 200 available at AK Bikes with transparent pricing.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 56,
@@ -501,7 +831,13 @@
     "number": "TS08JW2279",
     "price": 250000,
     "status": "unsold",
-    "image": ""
+    "description": "2023 Himalayan — well maintained bike with smooth engine and clean condition.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 57,
@@ -510,7 +846,13 @@
     "number": "TS09EX6848",
     "price": 160000,
     "status": "sold",
-    "image": ""
+    "description": "RC 390 offers good mileage and is ready for immediate delivery from our showroom.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 58,
@@ -519,7 +861,13 @@
     "number": "TS07JZ5430",
     "price": 160000,
     "status": "unsold",
-    "image": ""
+    "description": "Excellent condition 2023 R15 V4, recently serviced and inspected.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 59,
@@ -528,7 +876,13 @@
     "number": "TG100307",
     "price": 170000,
     "status": "unsold",
-    "image": ""
+    "description": "R15 M in showroom-ready condition with genuine parts and clear paperwork.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 60,
@@ -537,7 +891,13 @@
     "number": "TS08FE8209",
     "price": null,
     "status": "sold",
-    "image": ""
+    "description": "Reliable 2017 Activa 4G with smooth ride quality and tidy finish.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 61,
@@ -546,7 +906,13 @@
     "number": "TS07HY5885",
     "price": null,
     "status": "sold",
-    "image": ""
+    "description": "Activa 6G — single-owner feel, clean bodywork, and strong engine performance.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 62,
@@ -555,7 +921,13 @@
     "number": "TS11ER2391",
     "price": 40000,
     "status": "unsold",
-    "image": ""
+    "description": "Popular choice: Scooty pepty with balanced performance and everyday comfort.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 63,
@@ -564,7 +936,13 @@
     "number": "TS08GU6194",
     "price": 50000,
     "status": "unsold",
-    "image": ""
+    "description": "2019 PULSAR available at AK Bikes with transparent pricing.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 64,
@@ -573,7 +951,13 @@
     "number": "TS07HD3074",
     "price": 65000,
     "status": "unsold",
-    "image": ""
+    "description": "2020 DIO 2020 — well maintained bike with smooth engine and clean condition.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 65,
@@ -582,7 +966,13 @@
     "number": "TG08N8418",
     "price": 100000,
     "status": "sold",
-    "image": ""
+    "description": "Access 125 offers good mileage and is ready for immediate delivery from our showroom.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 66,
@@ -591,7 +981,13 @@
     "number": "TS15FJ4260",
     "price": 75000,
     "status": "unsold",
-    "image": ""
+    "description": "Excellent condition 2023 Sp 125, recently serviced and inspected.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 67,
@@ -600,7 +996,13 @@
     "number": "TS05FK5838",
     "price": 70000,
     "status": "unsold",
-    "image": ""
+    "description": "PULSAR 125 in showroom-ready condition with genuine parts and clear paperwork.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 68,
@@ -609,7 +1011,13 @@
     "number": null,
     "price": null,
     "status": "sold",
-    "image": ""
+    "description": "Reliable 2022 beneli with smooth ride quality and tidy finish.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 69,
@@ -618,7 +1026,13 @@
     "number": "TG07F6061",
     "price": 85000,
     "status": "unsold",
-    "image": ""
+    "description": "Pulsar 125 — single-owner feel, clean bodywork, and strong engine performance.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 70,
@@ -627,7 +1041,13 @@
     "number": null,
     "price": 75000,
     "status": "unsold",
-    "image": ""
+    "description": "Popular choice: Glamour with balanced performance and everyday comfort.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 71,
@@ -636,7 +1056,13 @@
     "number": "TR",
     "price": 140000,
     "status": "unsold",
-    "image": ""
+    "description": "2024 NS 200 (BLACK) available at AK Bikes with transparent pricing.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 72,
@@ -645,7 +1071,13 @@
     "number": "TS07HW9316",
     "price": 65000,
     "status": "unsold",
-    "image": ""
+    "description": "2021 Access 125 — well maintained bike with smooth engine and clean condition.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 73,
@@ -654,7 +1086,13 @@
     "number": "TG09D5037",
     "price": 220000,
     "status": "sold",
-    "image": ""
+    "description": "RC GOAN CLASSIC 350 offers good mileage and is ready for immediate delivery from our showroom.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 74,
@@ -663,7 +1101,13 @@
     "number": "TS12EX7740",
     "price": 180000,
     "status": "unsold",
-    "image": ""
+    "description": "Excellent condition 2023 ELECTRA 350, recently serviced and inspected.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 75,
@@ -672,7 +1116,13 @@
     "number": "TS11FA9543",
     "price": 180000,
     "status": "unsold",
-    "image": ""
+    "description": "METEOR 350 in showroom-ready condition with genuine parts and clear paperwork.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 76,
@@ -681,7 +1131,13 @@
     "number": "TS08JQ9642",
     "price": 159999,
     "status": "unsold",
-    "image": ""
+    "description": "Reliable 2023 DUKE 200 with smooth ride quality and tidy finish.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 77,
@@ -690,7 +1146,13 @@
     "number": "TS07EX8379",
     "price": 100000,
     "status": "unsold",
-    "image": ""
+    "description": "DUKE 200 — single-owner feel, clean bodywork, and strong engine performance.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 78,
@@ -699,7 +1161,13 @@
     "number": "TG08AB0047",
     "price": 320000,
     "status": "unsold",
-    "image": ""
+    "description": "Popular choice: DUKE 390 with balanced performance and everyday comfort.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 79,
@@ -708,7 +1176,13 @@
     "number": "TG09A8100",
     "price": null,
     "status": "sold",
-    "image": ""
+    "description": "2025 JAWA 42 available at AK Bikes with transparent pricing.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 80,
@@ -717,7 +1191,13 @@
     "number": "TS08HJ9427",
     "price": 160000,
     "status": "unsold",
-    "image": ""
+    "description": "2021 CLASSIC 350 — well maintained bike with smooth engine and clean condition.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 81,
@@ -726,7 +1206,13 @@
     "number": "TG07F5690",
     "price": 85000,
     "status": "unsold",
-    "image": ""
+    "description": "SP 125 offers good mileage and is ready for immediate delivery from our showroom.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 82,
@@ -735,7 +1221,13 @@
     "number": "TS08HQ6200",
     "price": 100000,
     "status": "unsold",
-    "image": ""
+    "description": "Excellent condition 2021 X PLUSE 200, recently serviced and inspected.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 83,
@@ -744,7 +1236,13 @@
     "number": "TS07HT5945",
     "price": 70000,
     "status": "unsold",
-    "image": ""
+    "description": "NS 160 in showroom-ready condition with genuine parts and clear paperwork.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 84,
@@ -753,7 +1251,13 @@
     "number": "TG08H7663",
     "price": 85000,
     "status": "unsold",
-    "image": ""
+    "description": "Reliable 2024 RAY ZR with smooth ride quality and tidy finish.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 85,
@@ -762,7 +1266,13 @@
     "number": "TR",
     "price": null,
     "status": "unsold",
-    "image": ""
+    "description": "ACTIVE 125 — single-owner feel, clean bodywork, and strong engine performance.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 86,
@@ -771,7 +1281,13 @@
     "number": "TG08G3415",
     "price": 85000,
     "status": "unsold",
-    "image": ""
+    "description": "Popular choice: GLAMOUR with balanced performance and everyday comfort.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 87,
@@ -780,7 +1296,13 @@
     "number": "TR",
     "price": null,
     "status": "unsold",
-    "image": ""
+    "description": "2023 PULSAR 125 available at AK Bikes with transparent pricing.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 88,
@@ -789,7 +1311,13 @@
     "number": "TS15FJ4260",
     "price": 75000,
     "status": "unsold",
-    "image": ""
+    "description": "2022 SP 125 — well maintained bike with smooth engine and clean condition.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 89,
@@ -798,7 +1326,13 @@
     "number": "TS08JJ7296",
     "price": 75000,
     "status": "unsold",
-    "image": ""
+    "description": "ACCESS 125 offers good mileage and is ready for immediate delivery from our showroom.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 90,
@@ -807,7 +1341,13 @@
     "number": "TS08GD1061",
     "price": 50000,
     "status": "unsold",
-    "image": ""
+    "description": "Excellent condition 2018 UNICORN, recently serviced and inspected.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 91,
@@ -816,7 +1356,13 @@
     "number": "TG095297",
     "price": 80000,
     "status": "unsold",
-    "image": ""
+    "description": "GIXXER in showroom-ready condition with genuine parts and clear paperwork.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 92,
@@ -825,7 +1371,13 @@
     "number": "TS03EQ3557",
     "price": 46000,
     "status": "unsold",
-    "image": ""
+    "description": "Reliable 2017 Fascino with smooth ride quality and tidy finish.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 93,
@@ -834,7 +1386,13 @@
     "number": "TS08FS2621",
     "price": 47000,
     "status": "unsold",
-    "image": ""
+    "description": "ACTIVA 4G — single-owner feel, clean bodywork, and strong engine performance.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 94,
@@ -843,7 +1401,13 @@
     "number": "TS35H5991",
     "price": 139999,
     "status": "unsold",
-    "image": ""
+    "description": "Popular choice: R15 with balanced performance and everyday comfort.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 95,
@@ -852,7 +1416,13 @@
     "number": "TS07GX9763",
     "price": 129999,
     "status": "unsold",
-    "image": ""
+    "description": "2019 DUKE(200) available at AK Bikes with transparent pricing.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 96,
@@ -861,7 +1431,13 @@
     "number": "TS08FA9496",
     "price": 140000,
     "status": "unsold",
-    "image": ""
+    "description": "2017 CLASSIC 350(BS4) — well maintained bike with smooth engine and clean condition.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 97,
@@ -870,7 +1446,13 @@
     "number": "TS34G4384",
     "price": null,
     "status": "unsold",
-    "image": ""
+    "description": "Jupiter offers good mileage and is ready for immediate delivery from our showroom.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 98,
@@ -879,7 +1461,13 @@
     "number": "TS08HS3439",
     "price": null,
     "status": "unsold",
-    "image": ""
+    "description": "Excellent condition 2021 X PLUSE 200, recently serviced and inspected.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 99,
@@ -888,7 +1476,13 @@
     "number": "TS24C9158",
     "price": null,
     "status": "unsold",
-    "image": ""
+    "description": "NS 200 (GRAY) in showroom-ready condition with genuine parts and clear paperwork.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 100,
@@ -897,7 +1491,13 @@
     "number": "TS03EM2600",
     "price": null,
     "status": "unsold",
-    "image": ""
+    "description": "Reliable 2016 DUKE 200 with smooth ride quality and tidy finish.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 101,
@@ -906,7 +1506,13 @@
     "number": "TS07KE9210",
     "price": 80000,
     "status": "unsold",
-    "image": ""
+    "description": "ACTIVE 125 — single-owner feel, clean bodywork, and strong engine performance.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 102,
@@ -915,7 +1521,13 @@
     "number": "TS085366",
     "price": 80000,
     "status": "unsold",
-    "image": ""
+    "description": "Popular choice: ACTIVE 6G with balanced performance and everyday comfort.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 103,
@@ -924,7 +1536,13 @@
     "number": "TG362505",
     "price": 190000,
     "status": "unsold",
-    "image": ""
+    "description": "2023 KTM DUKE 250 available at AK Bikes with transparent pricing.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 104,
@@ -933,7 +1551,13 @@
     "number": "TS08HQ8693",
     "price": 89999,
     "status": "unsold",
-    "image": ""
+    "description": "2021 TVS RTR APACHE 160 — well maintained bike with smooth engine and clean condition.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 105,
@@ -942,7 +1566,13 @@
     "number": "TS09FB1328",
     "price": null,
     "status": "unsold",
-    "image": ""
+    "description": "CB SHINE offers good mileage and is ready for immediate delivery from our showroom.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 106,
@@ -951,7 +1581,13 @@
     "number": "TR",
     "price": null,
     "status": "unsold",
-    "image": ""
+    "description": "Excellent condition 2024 PULSER 125, recently serviced and inspected.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
   {
     "id": 107,
@@ -960,6 +1596,12 @@
     "number": "TG07M6148",
     "price": 140000,
     "status": "unsold",
-    "image": ""
+    "description": "NS 200 in showroom-ready condition with genuine parts and clear paperwork.",
+    "images": [
+      "",
+      "",
+      "",
+      ""
+    ]
   }
 ]

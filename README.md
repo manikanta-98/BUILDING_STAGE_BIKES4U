@@ -1,4 +1,14 @@
-# ak-bikes
+# AK Bikes
+
+Second-hand bike showroom website (India) — Next.js frontend, Express + MongoDB backend, real inventory in `bikes (1).json`.
+
+**Full setup:** see [SETUP.md](./SETUP.md)
+
+- Showroom: `/`
+- Admin dashboard: `/admin`
+- API default: `http://localhost:5001/api`
+
+---
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
 

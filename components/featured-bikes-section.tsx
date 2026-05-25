@@ -1,7 +1,7 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { Search, SlidersHorizontal, X } from "lucide-react"
+import { useState, useEffect, useCallback } from "react"
+import { Search, SlidersHorizontal, X, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import {
@@ -12,61 +12,96 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { BikeCard } from "@/components/bike-card"
-import { bikes, brands, locations } from "@/lib/data"
+import { api } from "@/lib/api"
+import type { Bike } from "@/lib/types"
+
+const PAGE_SIZE = 12
 
 export function FeaturedBikesSection() {
-  const [searchQuery, setSearchQuery] = useState("")
-  const [selectedBrand, setSelectedBrand] = useState<string>("all")
-  const [selectedLocation, setSelectedLocation] = useState<string>("all")
-  const [selectedFuel, setSelectedFuel] = useState<string>("all")
-  const [priceRange, setPriceRange] = useState<string>("all")
-  const [showFilters, setShowFilters] = useState(false)
-  const [highlightedBikeId, setHighlightedBikeId] = useState<string | null>(null)
+  const [bikes, setBikes] = useState<Bike[]>([])
+  const [loading, setLoading] = useState(true)
+  const [loadingMore, setLoadingMore] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [page, setPage] = useState(1)
+  const [hasMore, setHasMore] = useState(false)
+  const [totalCount, setTotalCount] = useState(0)
 
-  // Close highlight when clicking outside or pressing Escape
+  const [searchQuery, setSearchQuery] = useState("")
+  const [priceRange, setPriceRange] = useState("all")
+  const [yearFilter, setYearFilter] = useState("all")
+  const [statusFilter, setStatusFilter] = useState("all")
+  const [sort, setSort] = useState("latest")
+  const [showFilters, setShowFilters] = useState(false)
+  const [highlightedBikeId, setHighlightedBikeId] = useState<number | null>(null)
+
+  const fetchBikes = useCallback(
+    async (pageNum: number, append = false) => {
+      try {
+        if (append) setLoadingMore(true)
+        else setLoading(true)
+
+        const params: Record<string, string> = {
+          page: String(pageNum),
+          limit: String(PAGE_SIZE),
+          sort,
+        }
+        if (searchQuery.trim()) params.search = searchQuery.trim()
+        if (priceRange !== "all") params.priceRange = priceRange
+        if (yearFilter !== "all") params.year = yearFilter
+        if (statusFilter !== "all") params.status = statusFilter
+
+        const res = await api.getBikes(params)
+        const list = Array.isArray(res.data) ? res.data : []
+        setBikes((prev) => (append ? [...prev, ...list] : list))
+        setTotalCount(res.pagination?.total ?? list.length)
+        setHasMore(res.pagination?.hasMore ?? false)
+        setError(null)
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Failed to load bikes")
+        if (!append) setBikes([])
+      } finally {
+        setLoading(false)
+        setLoadingMore(false)
+      }
+    },
+    [searchQuery, priceRange, yearFilter, statusFilter, sort]
+  )
+
+  useEffect(() => {
+    setPage(1)
+    fetchBikes(1, false)
+  }, [fetchBikes])
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setHighlightedBikeId(null)
-      }
+      if (e.key === "Escape") setHighlightedBikeId(null)
     }
     window.addEventListener("keydown", handleKeyDown)
     return () => window.removeEventListener("keydown", handleKeyDown)
   }, [])
 
-  const filteredBikes = bikes.filter((bike) => {
-    const matchesSearch =
-      searchQuery === "" ||
-      bike.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      bike.brand.toLowerCase().includes(searchQuery.toLowerCase())
-
-    const matchesBrand = selectedBrand === "all" || bike.brand === selectedBrand
-    const matchesLocation = selectedLocation === "all" || bike.location === selectedLocation
-    const matchesFuel = selectedFuel === "all" || bike.fuelType === selectedFuel
-
-    let matchesPrice = true
-    if (priceRange !== "all") {
-      const [min, max] = priceRange.split("-").map(Number)
-      matchesPrice = bike.price >= min && (max ? bike.price <= max : true)
-    }
-
-    return matchesSearch && matchesBrand && matchesLocation && matchesFuel && matchesPrice
-  })
+  const loadMore = () => {
+    const next = page + 1
+    setPage(next)
+    fetchBikes(next, true)
+  }
 
   const clearFilters = () => {
     setSearchQuery("")
-    setSelectedBrand("all")
-    setSelectedLocation("all")
-    setSelectedFuel("all")
     setPriceRange("all")
+    setYearFilter("all")
+    setStatusFilter("all")
+    setSort("latest")
   }
 
   const hasActiveFilters =
     searchQuery !== "" ||
-    selectedBrand !== "all" ||
-    selectedLocation !== "all" ||
-    selectedFuel !== "all" ||
-    priceRange !== "all"
+    priceRange !== "all" ||
+    yearFilter !== "all" ||
+    statusFilter !== "all" ||
+    sort !== "latest"
+
+  const yearOptions = Array.from({ length: 11 }, (_, i) => 2025 - i)
 
   return (
     <section id="featured" className="py-16">
@@ -80,19 +115,28 @@ export function FeaturedBikesSection() {
           </p>
         </div>
 
-        {/* Search & Filter Bar */}
         <div className="mb-8 space-y-4">
           <div className="flex flex-col sm:flex-row gap-4">
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
                 type="search"
-                placeholder="Search by bike name or brand..."
+                placeholder="Search by bike model..."
                 className="pl-10"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
+            <Select value={sort} onValueChange={setSort}>
+              <SelectTrigger className="w-full sm:w-[180px]">
+                <SelectValue placeholder="Sort" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="latest">Latest</SelectItem>
+                <SelectItem value="price-asc">Price: Low to High</SelectItem>
+                <SelectItem value="price-desc">Price: High to Low</SelectItem>
+              </SelectContent>
+            </Select>
             <Button
               variant="outline"
               className="gap-2 sm:w-auto"
@@ -108,26 +152,11 @@ export function FeaturedBikesSection() {
             </Button>
           </div>
 
-          {/* Expanded Filters */}
           {showFilters && (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 rounded-xl bg-secondary/50 border border-border">
-              <Select value={selectedBrand} onValueChange={setSelectedBrand}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Brand" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Brands</SelectItem>
-                  {brands.map((brand) => (
-                    <SelectItem key={brand} value={brand}>
-                      {brand}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 p-4 rounded-xl bg-secondary/50 border border-border">
               <Select value={priceRange} onValueChange={setPriceRange}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Price Range" />
+                  <SelectValue placeholder="Price" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="all">All Prices</SelectItem>
@@ -138,29 +167,28 @@ export function FeaturedBikesSection() {
                 </SelectContent>
               </Select>
 
-              <Select value={selectedFuel} onValueChange={setSelectedFuel}>
+              <Select value={yearFilter} onValueChange={setYearFilter}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Fuel Type" />
+                  <SelectValue placeholder="Year" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Fuel Types</SelectItem>
-                  <SelectItem value="Petrol">Petrol</SelectItem>
-                  <SelectItem value="Electric">Electric</SelectItem>
-                  <SelectItem value="Hybrid">Hybrid</SelectItem>
+                  <SelectItem value="all">All Years</SelectItem>
+                  {yearOptions.map((y) => (
+                    <SelectItem key={y} value={String(y)}>
+                      {y}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
 
-              <Select value={selectedLocation} onValueChange={setSelectedLocation}>
+              <Select value={statusFilter} onValueChange={setStatusFilter}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Location" />
+                  <SelectValue placeholder="Status" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Locations</SelectItem>
-                  {locations.map((location) => (
-                    <SelectItem key={location} value={location}>
-                      {location}
-                    </SelectItem>
-                  ))}
+                  <SelectItem value="all">All Status</SelectItem>
+                  <SelectItem value="unsold">Available</SelectItem>
+                  <SelectItem value="sold">Sold</SelectItem>
                 </SelectContent>
               </Select>
 
@@ -169,7 +197,7 @@ export function FeaturedBikesSection() {
                   variant="ghost"
                   size="sm"
                   onClick={clearFilters}
-                  className="col-span-2 md:col-span-4 gap-2"
+                  className="col-span-2 md:col-span-3 gap-2"
                 >
                   <X className="h-4 w-4" />
                   Clear All Filters
@@ -179,33 +207,74 @@ export function FeaturedBikesSection() {
           )}
         </div>
 
-        {/* Results Count */}
         <div className="mb-6">
           <p className="text-sm text-muted-foreground">
-            Showing <span className="font-medium text-foreground">{filteredBikes.length}</span> bikes
+            Showing{" "}
+            <span className="font-medium text-foreground">{bikes.length}</span>
+            {totalCount > 0 && (
+              <>
+                {" "}
+                of <span className="font-medium text-foreground">{totalCount}</span>
+              </>
+            )}{" "}
+            bikes
+            {hasMore && !loading && " — use Load More for the rest"}
+            {loading && " (loading...)"}
           </p>
         </div>
 
-        {/* Bikes Grid */}
-        {filteredBikes.length > 0 ? (
+        {error && (
+          <div className="mb-6 rounded-lg border border-destructive/50 bg-destructive/10 p-4 text-sm text-destructive">
+            {error}. Start the backend with <code className="font-mono">npm run dev</code> in the{" "}
+            <code className="font-mono">backend</code> folder.
+          </div>
+        )}
+
+        {loading && bikes.length === 0 ? (
+          <div className="flex justify-center py-16">
+            <Loader2 className="h-10 w-10 animate-spin text-primary" />
+          </div>
+        ) : bikes.length > 0 ? (
           <>
-            {/* Backdrop overlay when a bike is highlighted */}
-            {highlightedBikeId && (
-              <div 
+            {highlightedBikeId != null && (
+              <div
                 className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-all duration-300"
                 onClick={() => setHighlightedBikeId(null)}
               />
             )}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {filteredBikes.map((bike) => (
-                <BikeCard 
-                  key={bike.id} 
-                  bike={bike} 
+              {bikes.map((bike) => (
+                <BikeCard
+                  key={bike.id}
+                  bike={bike}
                   isHighlighted={highlightedBikeId === bike.id}
-                  onHighlight={() => setHighlightedBikeId(highlightedBikeId === bike.id ? null : bike.id)}
+                  onHighlight={() =>
+                    setHighlightedBikeId(highlightedBikeId === bike.id ? null : bike.id)
+                  }
                 />
               ))}
             </div>
+
+            {hasMore && (
+              <div className="mt-10 flex justify-center">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={loadMore}
+                  disabled={loadingMore}
+                  className="min-w-[160px]"
+                >
+                  {loadingMore ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Loading...
+                    </>
+                  ) : (
+                    "Load More"
+                  )}
+                </Button>
+              </div>
+            )}
           </>
         ) : (
           <div className="flex flex-col items-center justify-center py-16 text-center">

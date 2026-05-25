@@ -1,0 +1,965 @@
+[
+  {
+    "id": 1,
+    "model": "Jupiter Blue",
+    "year": 2023,
+    "number": "TS12EY5770",
+    "price": 75000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 2,
+    "model": "Activa 125",
+    "year": 2023,
+    "number": "TS08KB4171",
+    "price": null,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 3,
+    "model": "Pulsar 150",
+    "year": null,
+    "number": "TS08JR5085",
+    "price": null,
+    "status": "sold",
+    "image": ""
+  },
+  {
+    "id": 4,
+    "model": "Splendor",
+    "year": 2022,
+    "number": "TS07JK0139",
+    "price": 65000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 5,
+    "model": "Access 125",
+    "year": 2023,
+    "number": "TS08JS8771",
+    "price": 85000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 6,
+    "model": "Glamour",
+    "year": 2021,
+    "number": "TS08HX6067",
+    "price": 65000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 7,
+    "model": "Splendor",
+    "year": 2021,
+    "number": "TS13EV2383",
+    "price": 55000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 8,
+    "model": "NS 200 Red",
+    "year": 2018,
+    "number": "TS09FA8058",
+    "price": 90000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 9,
+    "model": "Pulsar 125",
+    "year": 2023,
+    "number": "BAJAJ tr 125",
+    "price": 85000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 10,
+    "model": "Splendor Smart",
+    "year": 2016,
+    "number": "TS19C5422",
+    "price": 45000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 11,
+    "model": "NS 125",
+    "year": 2024,
+    "number": "TG080942",
+    "price": 85000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 12,
+    "model": "Activa 6G Blue",
+    "year": 2024,
+    "number": "TG09A5452",
+    "price": null,
+    "status": "sold",
+    "image": ""
+  },
+  {
+    "id": 13,
+    "model": "Activa Smart",
+    "year": 2023,
+    "number": "TS13FB4377",
+    "price": 85000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 14,
+    "model": "Pulsar 220F",
+    "year": 2020,
+    "number": "TS08HJ0365",
+    "price": 90000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 15,
+    "model": "Dominar RED",
+    "year": 2018,
+    "number": "TS08FS9996",
+    "price": 100000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 16,
+    "model": "Dominar",
+    "year": 2017,
+    "number": "TS08FG8792",
+    "price": 110000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 17,
+    "model": "HF Deluxe",
+    "year": 2023,
+    "number": "TG07G6723",
+    "price": 70000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 18,
+    "model": "Platina",
+    "year": 2024,
+    "number": "TG07H4113",
+    "price": 70000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 19,
+    "model": "Shine 100",
+    "year": 2023,
+    "number": "TS07KD7688",
+    "price": 70000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 20,
+    "model": "Jawa 42",
+    "year": 2023,
+    "number": "TS08JT3098",
+    "price": 150000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 21,
+    "model": "TVS Raider",
+    "year": 2023,
+    "number": "TS08JZ0679",
+    "price": null,
+    "status": "sold",
+    "image": ""
+  },
+  {
+    "id": 22,
+    "model": "RC 200",
+    "year": 2018,
+    "number": "TS07GH1607",
+    "price": null,
+    "status": "sold",
+    "image": ""
+  },
+  {
+    "id": 23,
+    "model": "Thunderbird",
+    "year": 2018,
+    "number": "TS15FA0658",
+    "price": 100000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 24,
+    "model": "Splendor",
+    "year": 2023,
+    "number": "TS15FP6395",
+    "price": 70000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 25,
+    "model": "Splendor",
+    "year": 2023,
+    "number": "TG07M3814",
+    "price": 75000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 26,
+    "model": "Classic Red",
+    "year": 2021,
+    "number": "TS08HM0893",
+    "price": 169000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 27,
+    "model": "Shine 125",
+    "year": 2024,
+    "number": "TG07F5492",
+    "price": 85000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 28,
+    "model": "Fasino",
+    "year": 2024,
+    "number": "TG08HD0825",
+    "price": null,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 29,
+    "model": "TVS Raider",
+    "year": 2024,
+    "number": "TG07A0097",
+    "price": 85000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 30,
+    "model": "NS 200 RED",
+    "year": 2022,
+    "number": "TS07KB3510",
+    "price": null,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 31,
+    "model": "ACTIVA 125",
+    "year": 2022,
+    "number": "TS08JJ4895",
+    "price": 75000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 32,
+    "model": "ACTIVA 5G",
+    "year": 2018,
+    "number": "TS08FZ7810",
+    "price": 55000,
+    "status": "sold",
+    "image": ""
+  },
+  {
+    "id": 33,
+    "model": "ACTIVA",
+    "year": 2021,
+    "number": "TS08HW0541",
+    "price": null,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 34,
+    "model": "Himalayan",
+    "year": 2023,
+    "number": "TS08JS8687",
+    "price": 199999,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 35,
+    "model": "Rc 200",
+    "year": 2023,
+    "number": "TS08KC6054",
+    "price": 180000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 36,
+    "model": "Apache 310",
+    "year": 2019,
+    "number": "TS07GT8996",
+    "price": 160000,
+    "status": "sold",
+    "image": ""
+  },
+  {
+    "id": 37,
+    "model": "CT-110",
+    "year": 2022,
+    "number": "TS08HZ8946",
+    "price": null,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 38,
+    "model": "KTM Adventure",
+    "year": 2020,
+    "number": "TS08GS9451",
+    "price": 180000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 39,
+    "model": "NS 200 Yellow",
+    "year": 2019,
+    "number": "SRINU",
+    "price": null,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 40,
+    "model": "NS 200 Grey",
+    "year": 2020,
+    "number": "SAI HEMADRI HEIGHTS",
+    "price": null,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 41,
+    "model": "Sp 125",
+    "year": 2024,
+    "number": "TG07D6204",
+    "price": 85000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 42,
+    "model": "Activa white",
+    "year": 2024,
+    "number": "TG08G1704",
+    "price": 85000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 43,
+    "model": "Jupiter",
+    "year": 2024,
+    "number": "ram koti",
+    "price": null,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 44,
+    "model": "Glamour",
+    "year": 2022,
+    "number": "TS07JF9014",
+    "price": 75000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 45,
+    "model": "Activa",
+    "year": 2023,
+    "number": "ts12ez0157",
+    "price": null,
+    "status": "sold",
+    "image": ""
+  },
+  {
+    "id": 46,
+    "model": "XPULSE Red",
+    "year": 2020,
+    "number": "TS08HH2887",
+    "price": 90000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 47,
+    "model": "NS 160 white",
+    "year": 2023,
+    "number": "TS06FF8741",
+    "price": 100000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 48,
+    "model": "RS 200",
+    "year": 2023,
+    "number": "TS07JB6502",
+    "price": 140000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 49,
+    "model": "MT-15",
+    "year": 2022,
+    "number": "Ts07JL5438",
+    "price": 120000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 50,
+    "model": "Hunter Rebel blue 2024",
+    "year": 2024,
+    "number": "TG07M1845",
+    "price": null,
+    "status": "sold",
+    "image": ""
+  },
+  {
+    "id": 51,
+    "model": "Hunter rebel Red black",
+    "year": 2025,
+    "number": "TG07AP9518",
+    "price": null,
+    "status": "sold",
+    "image": ""
+  },
+  {
+    "id": 52,
+    "model": "STANdard 2023",
+    "year": 2023,
+    "number": "TS08JV5072",
+    "price": null,
+    "status": "sold",
+    "image": ""
+  },
+  {
+    "id": 53,
+    "model": "CLASSIC 350",
+    "year": 2021,
+    "number": "AP39KA2734",
+    "price": 170000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 54,
+    "model": "Electra",
+    "year": 2022,
+    "number": "TS13EX2713",
+    "price": null,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 55,
+    "model": "duke 200",
+    "year": 2022,
+    "number": "TS09FW2101",
+    "price": 150000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 56,
+    "model": "Himalayan",
+    "year": 2023,
+    "number": "TS08JW2279",
+    "price": 250000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 57,
+    "model": "RC 390",
+    "year": 2017,
+    "number": "TS09EX6848",
+    "price": 160000,
+    "status": "sold",
+    "image": ""
+  },
+  {
+    "id": 58,
+    "model": "R15 V4",
+    "year": 2023,
+    "number": "TS07JZ5430",
+    "price": 160000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 59,
+    "model": "R15 M",
+    "year": 2024,
+    "number": "TG100307",
+    "price": 170000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 60,
+    "model": "Activa 4G",
+    "year": 2017,
+    "number": "TS08FE8209",
+    "price": null,
+    "status": "sold",
+    "image": ""
+  },
+  {
+    "id": 61,
+    "model": "Activa 6G",
+    "year": 2021,
+    "number": "TS07HY5885",
+    "price": null,
+    "status": "sold",
+    "image": ""
+  },
+  {
+    "id": 62,
+    "model": "Scooty pepty",
+    "year": 2019,
+    "number": "TS11ER2391",
+    "price": 40000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 63,
+    "model": "PULSAR",
+    "year": 2019,
+    "number": "TS08GU6194",
+    "price": 50000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 64,
+    "model": "DIO 2020",
+    "year": 2020,
+    "number": "TS07HD3074",
+    "price": 65000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 65,
+    "model": "Access 125",
+    "year": 2025,
+    "number": "TG08N8418",
+    "price": 100000,
+    "status": "sold",
+    "image": ""
+  },
+  {
+    "id": 66,
+    "model": "Sp 125",
+    "year": 2023,
+    "number": "TS15FJ4260",
+    "price": 75000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 67,
+    "model": "PULSAR 125",
+    "year": 2021,
+    "number": "TS05FK5838",
+    "price": 70000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 68,
+    "model": "beneli",
+    "year": 2022,
+    "number": null,
+    "price": null,
+    "status": "sold",
+    "image": ""
+  },
+  {
+    "id": 69,
+    "model": "Pulsar 125",
+    "year": 2024,
+    "number": "TG07F6061",
+    "price": 85000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 70,
+    "model": "Glamour",
+    "year": 2024,
+    "number": null,
+    "price": 75000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 71,
+    "model": "NS 200 (BLACK)",
+    "year": 2024,
+    "number": "TR",
+    "price": 140000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 72,
+    "model": "Access 125",
+    "year": 2021,
+    "number": "TS07HW9316",
+    "price": 65000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 73,
+    "model": "RC GOAN CLASSIC 350",
+    "year": 2024,
+    "number": "TG09D5037",
+    "price": 220000,
+    "status": "sold",
+    "image": ""
+  },
+  {
+    "id": 74,
+    "model": "ELECTRA 350",
+    "year": 2023,
+    "number": "TS12EX7740",
+    "price": 180000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 75,
+    "model": "METEOR 350",
+    "year": 2023,
+    "number": "TS11FA9543",
+    "price": 180000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 76,
+    "model": "DUKE 200",
+    "year": 2023,
+    "number": "TS08JQ9642",
+    "price": 159999,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 77,
+    "model": "DUKE 200",
+    "year": 2017,
+    "number": "TS07EX8379",
+    "price": 100000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 78,
+    "model": "DUKE 390",
+    "year": 2025,
+    "number": "TG08AB0047",
+    "price": 320000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 79,
+    "model": "JAWA 42",
+    "year": 2025,
+    "number": "TG09A8100",
+    "price": null,
+    "status": "sold",
+    "image": ""
+  },
+  {
+    "id": 80,
+    "model": "CLASSIC 350",
+    "year": 2021,
+    "number": "TS08HJ9427",
+    "price": 160000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 81,
+    "model": "SP 125",
+    "year": 2024,
+    "number": "TG07F5690",
+    "price": 85000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 82,
+    "model": "X PLUSE 200",
+    "year": 2021,
+    "number": "TS08HQ6200",
+    "price": 100000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 83,
+    "model": "NS 160",
+    "year": 2021,
+    "number": "TS07HT5945",
+    "price": 70000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 84,
+    "model": "RAY ZR",
+    "year": 2024,
+    "number": "TG08H7663",
+    "price": 85000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 85,
+    "model": "ACTIVE 125",
+    "year": 2024,
+    "number": "TR",
+    "price": null,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 86,
+    "model": "GLAMOUR",
+    "year": 2024,
+    "number": "TG08G3415",
+    "price": 85000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 87,
+    "model": "PULSAR 125",
+    "year": 2023,
+    "number": "TR",
+    "price": null,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 88,
+    "model": "SP 125",
+    "year": 2022,
+    "number": "TS15FJ4260",
+    "price": 75000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 89,
+    "model": "ACCESS 125",
+    "year": 2022,
+    "number": "TS08JJ7296",
+    "price": 75000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 90,
+    "model": "UNICORN",
+    "year": 2018,
+    "number": "TS08GD1061",
+    "price": 50000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 91,
+    "model": "GIXXER",
+    "year": 2021,
+    "number": "TG095297",
+    "price": 80000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 92,
+    "model": "Fascino",
+    "year": 2017,
+    "number": "TS03EQ3557",
+    "price": 46000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 93,
+    "model": "ACTIVA 4G",
+    "year": 2018,
+    "number": "TS08FS2621",
+    "price": 47000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 94,
+    "model": "R15",
+    "year": 2023,
+    "number": "TS35H5991",
+    "price": 139999,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 95,
+    "model": "DUKE(200)",
+    "year": 2019,
+    "number": "TS07GX9763",
+    "price": 129999,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 96,
+    "model": "CLASSIC 350(BS4)",
+    "year": 2017,
+    "number": "TS08FA9496",
+    "price": 140000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 97,
+    "model": "Jupiter",
+    "year": 2021,
+    "number": "TS34G4384",
+    "price": null,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 98,
+    "model": "X PLUSE 200",
+    "year": 2021,
+    "number": "TS08HS3439",
+    "price": null,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 99,
+    "model": "NS 200 (GRAY)",
+    "year": 2020,
+    "number": "TS24C9158",
+    "price": null,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 100,
+    "model": "DUKE 200",
+    "year": 2016,
+    "number": "TS03EM2600",
+    "price": null,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 101,
+    "model": "ACTIVE 125",
+    "year": 2023,
+    "number": "TS07KE9210",
+    "price": 80000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 102,
+    "model": "ACTIVE 6G",
+    "year": 2024,
+    "number": "TS085366",
+    "price": 80000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 103,
+    "model": "KTM DUKE 250",
+    "year": 2023,
+    "number": "TG362505",
+    "price": 190000,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 104,
+    "model": "TVS RTR APACHE 160",
+    "year": 2021,
+    "number": "TS08HQ8693",
+    "price": 89999,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 105,
+    "model": "CB SHINE",
+    "year": 2018,
+    "number": "TS09FB1328",
+    "price": null,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 106,
+    "model": "PULSER 125",
+    "year": 2024,
+    "number": "TR",
+    "price": null,
+    "status": "unsold",
+    "image": ""
+  },
+  {
+    "id": 107,
+    "model": "NS 200",
+    "year": 2024,
+    "number": "TG07M6148",
+    "price": 140000,
+    "status": "unsold",
+    "image": ""
+  }
+]

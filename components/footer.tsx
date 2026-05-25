@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { Bike, MapPin, Phone, Mail, MessageCircle, Facebook, Instagram, Twitter, Youtube } from "lucide-react"
 import { Button } from "@/components/ui/button"

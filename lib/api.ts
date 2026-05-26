@@ -77,6 +77,38 @@ export const api = {
       headers: adminHeaders(key),
       body: JSON.stringify({ status }),
     }),
+
+  uploadSellPhotos: async (files: File[]): Promise<string[]> => {
+    if (files.length === 0) return [];
+    const form = new FormData();
+    files.forEach((f) => form.append("photos", f));
+    const url = `${API_URL}/sell/upload`;
+
+    let res: Response;
+    try {
+      res = await fetch(url, { method: "POST", body: form });
+    } catch {
+      throw new Error(
+        `Cannot reach photo upload (${url}). Restart backend: npm run dev in backend folder.`
+      );
+    }
+
+    let data: { message?: string; urls?: string[] };
+    try {
+      data = await res.json();
+    } catch {
+      throw new Error(
+        res.status === 404
+          ? "Sell upload route missing — restart backend after pulling latest code."
+          : "Photo upload returned invalid response."
+      );
+    }
+
+    if (!res.ok) {
+      throw new Error(data.message || `Photo upload failed (${res.status})`);
+    }
+    return data.urls || [];
+  },
 };
 
 export function formatPrice(price: number | null) {

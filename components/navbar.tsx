@@ -6,11 +6,12 @@ import { useTheme } from "next-themes"
 import { Menu, X, Search, Sun, Moon, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { triggerSellBikeModal } from "@/components/sell-bike-modal"
 
 const navLinks = [
   { name: "Home", href: "#" },
   { name: "Buy Bikes", href: "#featured" },
-  { name: "Sell Bike", href: "#sell" },
+  { name: "Sell Bike", href: "#", openSellModal: true },
   { name: "Exchange", href: "#exchange" },
   { name: "Contact", href: "#contact" },
 ]
@@ -56,19 +57,36 @@ export function Navbar() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {link.name}
-              </Link>
-            ))}
+            {navLinks.map((link) =>
+              link.openSellModal ? (
+                <button
+                  key={link.name}
+                  type="button"
+                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                  onClick={() => triggerSellBikeModal()}
+                >
+                  {link.name}
+                </button>
+              ) : (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {link.name}
+                </Link>
+              )
+            )}
           </nav>
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center gap-2">
+            <Button variant="ghost" size="sm" asChild>
+              <Link href="/login">Login</Link>
+            </Button>
+            <Button size="sm" asChild>
+              <Link href="/signup">Signup</Link>
+            </Button>
             <Button
               variant="ghost"
               size="icon"
@@ -121,16 +139,42 @@ export function Navbar() {
               />
             </div>
             <nav className="flex flex-col gap-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:bg-secondary rounded-lg"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              ))}
+              {navLinks.map((link) =>
+                link.openSellModal ? (
+                  <button
+                    key={link.name}
+                    type="button"
+                    className="w-full px-3 py-2 text-left text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:bg-secondary rounded-lg"
+                    onClick={() => {
+                      setIsOpen(false)
+                      triggerSellBikeModal()
+                    }}
+                  >
+                    {link.name}
+                  </button>
+                ) : (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className="px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:bg-secondary rounded-lg"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                )
+              )}
+              <div className="flex gap-2 mt-2">
+                <Button variant="outline" className="flex-1" asChild>
+                  <Link href="/login" onClick={() => setIsOpen(false)}>
+                    Login
+                  </Link>
+                </Button>
+                <Button className="flex-1" asChild>
+                  <Link href="/signup" onClick={() => setIsOpen(false)}>
+                    Signup
+                  </Link>
+                </Button>
+              </div>
               <Button onClick={handleWhatsApp} className="mt-2 gap-2 bg-[#25D366] hover:bg-[#128C7E] text-white">
                 <MessageCircle className="h-4 w-4" />
                 WhatsApp Us

@@ -313,7 +313,10 @@ export default function AdminPage() {
                 </thead>
                 <tbody>
                   {bikes.map((bike) => (
-                    <tr key={bike.id} className="border-b last:border-0 hover:bg-muted/30">
+                    <tr
+                      key={`${bike.id}-${bike.number ?? bike._id ?? "row"}`}
+                      className="border-b last:border-0 hover:bg-muted/30"
+                    >
                       <td className="p-3 font-mono">{bike.id}</td>
                       <td className="p-3 font-medium">{bike.model}</td>
                       <td className="p-3">{bike.year ?? "—"}</td>

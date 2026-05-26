@@ -35,7 +35,7 @@ const features = [
 
 export function WhyChooseUsSection() {
   return (
-    <section id="sell" className="py-16 bg-secondary/30">
+    <section id="why-choose" className="py-16 bg-secondary/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-3">

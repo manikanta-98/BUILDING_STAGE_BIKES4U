@@ -6,6 +6,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { connectDB } from "./src/config/db.js";
 import bikeRoutes from "./src/routes/bikeRoutes.js";
+import sellRoutes from "./src/routes/sellRoutes.js";
 import { notFound, errorHandler } from "./src/middleware/errorHandler.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -44,6 +45,7 @@ app.get("/api/health", (req, res) => {
 });
 
 app.use("/api/bikes", bikeRoutes);
+app.use("/api/sell", sellRoutes);
 
 app.use(notFound);
 app.use(errorHandler);

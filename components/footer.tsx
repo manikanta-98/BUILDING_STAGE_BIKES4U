@@ -3,11 +3,12 @@
 import Link from "next/link"
 import { MapPin, Phone, Mail, MessageCircle, Facebook, Instagram, Twitter, Youtube } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { triggerSellBikeModal } from "@/components/sell-bike-modal"
 
 const quickLinks = [
   { name: "Home", href: "#" },
   { name: "Buy Bikes", href: "#featured" },
-  { name: "Sell Your Bike", href: "#sell" },
+  { name: "Sell Your Bike", href: "#", openSellModal: true },
   { name: "Exchange", href: "#exchange" },
   { name: "About Us", href: "#" },
   { name: "Contact", href: "#contact" },
@@ -66,12 +67,22 @@ export function Footer() {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.name}
-                  </Link>
+                  {link.openSellModal ? (
+                    <button
+                      type="button"
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left"
+                      onClick={() => triggerSellBikeModal()}
+                    >
+                      {link.name}
+                    </button>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

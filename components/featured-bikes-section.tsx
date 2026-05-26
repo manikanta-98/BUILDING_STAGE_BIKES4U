@@ -17,6 +17,21 @@ import type { Bike } from "@/lib/types"
 
 const PAGE_SIZE = 12
 
+function bikeKey(bike: Bike) {
+  return `${bike.id}-${bike.number ?? bike._id ?? "na"}`
+}
+
+function mergeBikes(prev: Bike[], list: Bike[], append: boolean): Bike[] {
+  const merged = append ? [...prev, ...list] : list
+  const seen = new Set<string>()
+  return merged.filter((bike) => {
+    const key = bikeKey(bike)
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+}
+
 export function FeaturedBikesSection() {
   const [bikes, setBikes] = useState<Bike[]>([])
   const [loading, setLoading] = useState(true)
@@ -52,7 +67,7 @@ export function FeaturedBikesSection() {
 
         const res = await api.getBikes(params)
         const list = Array.isArray(res.data) ? res.data : []
-        setBikes((prev) => (append ? [...prev, ...list] : list))
+        setBikes((prev) => mergeBikes(prev, list, append))
         setTotalCount(res.pagination?.total ?? list.length)
         setHasMore(res.pagination?.hasMore ?? false)
         setError(null)
@@ -81,6 +96,7 @@ export function FeaturedBikesSection() {
   }, [])
 
   const loadMore = () => {
+    if (loadingMore || loading || !hasMore) return
     const next = page + 1
     setPage(next)
     fetchBikes(next, true)
@@ -245,7 +261,7 @@ export function FeaturedBikesSection() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {bikes.map((bike) => (
                 <BikeCard
-                  key={bike.id}
+                  key={bikeKey(bike)}
                   bike={bike}
                   isHighlighted={highlightedBikeId === bike.id}
                   onHighlight={() =>

@@ -1,5 +1,7 @@
 import { brands } from "@/lib/data"
 
+const uniqueBrands = [...new Set(brands)]
+
 export function PopularBrandsSection() {
   return (
     <section className="py-16">
@@ -14,9 +16,9 @@ export function PopularBrandsSection() {
         </div>
 
         <div className="flex flex-wrap justify-center gap-4">
-          {brands.map((brand) => (
+          {uniqueBrands.map((brand, index) => (
             <button
-              key={brand}
+              key={`${brand}-${index}`}
               className="px-6 py-3 rounded-full border border-border bg-card font-medium hover:border-primary hover:bg-primary/5 transition-colors"
             >
               {brand}

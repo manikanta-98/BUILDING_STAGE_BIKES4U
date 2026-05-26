@@ -1,4 +1,4 @@
-export const brands = ["Bajaj", "Honda", "Royal Enfield", "TVS", "Yamaha", "Ather", "Ola", "Hero", "Suzuki", "KTM", "Yamaha"]
+export const brands = ["Bajaj", "Honda", "Royal Enfield", "TVS", "Yamaha", "Ather", "Ola", "Hero", "Suzuki", "KTM"]
 
 export const locations = ["Mumbai", "Delhi", "Bangalore", "Chennai", "Pune", "Ahmedabad", "Lucknow", "Gurgaon", "Kolkata", "Hyderabad"]
 

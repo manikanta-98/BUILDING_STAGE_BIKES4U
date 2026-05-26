@@ -1,11 +1,22 @@
 "use client"
 
+import { useEffect, useState } from "react"
+import { OPEN_SELL_MODAL_EVENT } from "@/components/sell-bike-modal"
 import { Button } from "@/components/ui/button"
-import { MessageCircle, ChevronRight } from "lucide-react"
+import { MessageCircle, ChevronRight, Bike } from "lucide-react"
+import { SellBikeModal } from "@/components/sell-bike-modal"
 
 export function HeroSection() {
+  const [sellModalOpen, setSellModalOpen] = useState(false)
+
+  useEffect(() => {
+    const open = () => setSellModalOpen(true)
+    window.addEventListener(OPEN_SELL_MODAL_EVENT, open)
+    return () => window.removeEventListener(OPEN_SELL_MODAL_EVENT, open)
+  }, [])
+
   const handleWhatsApp = () => {
-    window.open("https://wa.me/919676499794?text=Hi! I'm interested in bikes at BIKES4u", "_blank")
+    window.open("https://wa.me/919676499794?text=Hi! I'm interested in bikes at AK Bikes", "_blank")
   }
 
   return (
@@ -30,13 +41,25 @@ export function HeroSection() {
             <p className="max-w-xl mx-auto lg:mx-0 text-lg text-muted-foreground text-pretty">
               Looking for a good bike at low price? Want to sell your old bike? We are here to help. All bikes checked by experts.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-start">
               <Button size="lg" className="gap-2 text-base" asChild>
                 <a href="#featured">
                   See All Bikes
                   <ChevronRight className="h-4 w-4" />
                 </a>
               </Button>
+              <button
+                type="button"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-md bg-secondary px-8 text-base font-medium text-secondary-foreground shadow-sm transition-colors hover:bg-secondary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                onClick={(e) => {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  setSellModalOpen(true)
+                }}
+              >
+                <Bike className="h-5 w-5" />
+                Sell Your Bike
+              </button>
               <Button
                 size="lg"
                 variant="outline"
@@ -83,6 +106,10 @@ export function HeroSection() {
           </div>
         </div>
       </div>
+      <SellBikeModal
+        open={sellModalOpen}
+        onOpenChange={setSellModalOpen}
+      />
     </section>
   )
 }

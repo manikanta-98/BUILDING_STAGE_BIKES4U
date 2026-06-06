@@ -1,4 +1,15 @@
 import Bike from "../models/Bike.js";
+import { isUsingJsonFallback } from "../config/db.js";
+import {
+  queryBikes as queryJsonBikes,
+  findBikeById as findJsonBikeById,
+  createJsonBike,
+  updateJsonBike,
+  deleteJsonBike,
+  updateJsonBikeStatus,
+} from "../services/jsonInventory.js";
+import { enrichBike, enrichBikes } from "../utils/bikeImages.js";
+import { normalizeImageUrls } from "../utils/imageUrls.js";
 
 function buildFilter(query) {
   const filter = {};
@@ -53,6 +64,11 @@ function buildSort(sort) {
 
 export async function getBikes(req, res, next) {
   try {
+    if (isUsingJsonFallback()) {
+      const result = queryJsonBikes(req.query);
+      return res.json({ success: true, ...result });
+    }
+
     const page = Math.max(1, parseInt(req.query.page, 10) || 1);
     const requestedLimit = parseInt(req.query.limit, 10);
     // Public catalog: default 12, max 50. Admin/list views can request up to 500.
@@ -77,7 +93,7 @@ export async function getBikes(req, res, next) {
 
     res.json({
       success: true,
-      data: bikes,
+      data: enrichBikes(bikes),
       pagination: {
         page,
         limit,
@@ -95,11 +111,18 @@ export async function getBikes(req, res, next) {
 export async function getBikeById(req, res, next) {
   try {
     const id = Number(req.params.id);
+    if (isUsingJsonFallback()) {
+      const bike = findJsonBikeById(id);
+      if (!bike) {
+        return res.status(404).json({ success: false, message: "Bike not found" });
+      }
+      return res.json({ success: true, data: bike });
+    }
     const bike = await Bike.findOne({ id }).lean();
     if (!bike) {
       return res.status(404).json({ success: false, message: "Bike not found" });
     }
-    res.json({ success: true, data: bike });
+    res.json({ success: true, data: enrichBike(bike) });
   } catch (err) {
     next(err);
   }
@@ -107,7 +130,17 @@ export async function getBikeById(req, res, next) {
 
 export async function createBike(req, res, next) {
   try {
-    const payload = normalizePayload(req.body);
+    const payload = await normalizePayloadAsync(req.body);
+    if (isUsingJsonFallback()) {
+      try {
+        const bike = createJsonBike(payload);
+        return res.status(201).json({ success: true, data: bike });
+      } catch (err) {
+        return res
+          .status(err.status || 500)
+          .json({ success: false, message: err.message });
+      }
+    }
     const existing = await Bike.findOne({
       $or: [{ id: payload.id }, ...(payload.number ? [{ number: payload.number }] : [])],
     });
@@ -115,7 +148,7 @@ export async function createBike(req, res, next) {
       return res.status(409).json({ success: false, message: "Bike with same id or number already exists" });
     }
     const bike = await Bike.create(payload);
-    res.status(201).json({ success: true, data: bike });
+    res.status(201).json({ success: true, data: enrichBike(bike.toObject()) });
   } catch (err) {
     next(err);
   }
@@ -124,7 +157,17 @@ export async function createBike(req, res, next) {
 export async function updateBike(req, res, next) {
   try {
     const id = Number(req.params.id);
-    const payload = normalizePayload(req.body, { partial: true });
+    const payload = await normalizePayloadAsync(req.body, { partial: true });
+    if (isUsingJsonFallback()) {
+      try {
+        const bike = updateJsonBike(id, payload);
+        return res.json({ success: true, data: bike });
+      } catch (err) {
+        return res
+          .status(err.status || 500)
+          .json({ success: false, message: err.message });
+      }
+    }
     const bike = await Bike.findOneAndUpdate({ id }, payload, {
       new: true,
       runValidators: true,
@@ -132,7 +175,7 @@ export async function updateBike(req, res, next) {
     if (!bike) {
       return res.status(404).json({ success: false, message: "Bike not found" });
     }
-    res.json({ success: true, data: bike });
+    res.json({ success: true, data: enrichBike(bike.toObject()) });
   } catch (err) {
     next(err);
   }
@@ -141,6 +184,16 @@ export async function updateBike(req, res, next) {
 export async function deleteBike(req, res, next) {
   try {
     const id = Number(req.params.id);
+    if (isUsingJsonFallback()) {
+      try {
+        deleteJsonBike(id);
+        return res.json({ success: true, message: "Bike deleted" });
+      } catch (err) {
+        return res
+          .status(err.status || 500)
+          .json({ success: false, message: err.message });
+      }
+    }
     const bike = await Bike.findOneAndDelete({ id });
     if (!bike) {
       return res.status(404).json({ success: false, message: "Bike not found" });
@@ -158,14 +211,32 @@ export async function updateBikeStatus(req, res, next) {
     if (!["unsold", "sold"].includes(status)) {
       return res.status(400).json({ success: false, message: "Status must be unsold or sold" });
     }
+    if (isUsingJsonFallback()) {
+      try {
+        const bike = updateJsonBikeStatus(id, status);
+        return res.json({ success: true, data: bike });
+      } catch (err) {
+        return res
+          .status(err.status || 500)
+          .json({ success: false, message: err.message });
+      }
+    }
     const bike = await Bike.findOneAndUpdate({ id }, { status }, { new: true });
     if (!bike) {
       return res.status(404).json({ success: false, message: "Bike not found" });
     }
-    res.json({ success: true, data: bike });
+    res.json({ success: true, data: enrichBike(bike.toObject()) });
   } catch (err) {
     next(err);
   }
+}
+
+async function normalizePayloadAsync(body, { partial = false } = {}) {
+  const out = normalizePayload(body, { partial });
+  if (out.images !== undefined && Array.isArray(out.images)) {
+    out.images = await normalizeImageUrls(out.images);
+  }
+  return out;
 }
 
 function normalizePayload(body, { partial = false } = {}) {

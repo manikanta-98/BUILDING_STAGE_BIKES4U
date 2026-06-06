@@ -17,7 +17,14 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { api, formatPrice, getWhatsAppLink } from "@/lib/api"
 import type { Bike } from "@/lib/types"
-import { getBikeImages, isAvailable, statusLabel } from "@/lib/bike-helpers"
+import {
+  getBikeImages,
+  normalizeImageUrl,
+  PLACEHOLDER,
+  isAvailable,
+  statusLabel,
+} from "@/lib/bike-helpers"
+import { BikeImage } from "@/components/bike-image"
 
 export default function BikeDetailPage() {
   const params = useParams()
@@ -26,6 +33,11 @@ export default function BikeDetailPage() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [imageIndex, setImageIndex] = useState(0)
+  const [mainSrc, setMainSrc] = useState(PLACEHOLDER)
+
+  const primaryImage = bike?.images?.[0]?.trim()
+    ? normalizeImageUrl(bike.images[0])
+    : PLACEHOLDER
 
   useEffect(() => {
     if (!id) return
@@ -42,7 +54,17 @@ export default function BikeDetailPage() {
       .finally(() => setLoading(false))
   }, [id])
 
-  const images = bike ? getBikeImages(bike) : []
+  const images = bike ? getBikeImages(bike) : [PLACEHOLDER]
+
+  useEffect(() => {
+    if (bike) {
+      const first = bike.images?.[0]?.trim()
+        ? normalizeImageUrl(bike.images[0])
+        : PLACEHOLDER
+      setMainSrc(first)
+      setImageIndex(0)
+    }
+  }, [bike])
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -73,11 +95,42 @@ export default function BikeDetailPage() {
         {!loading && bike && (
           <div className="grid lg:grid-cols-2 gap-10">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-secondary border">
-              <img
-                src={images[imageIndex]}
-                alt={bike.model}
-                className="h-full w-full object-cover"
-              />
+              {images.length > 1 && images[0] !== PLACEHOLDER ? (
+                <BikeImage
+                  src={images[imageIndex]}
+                  alt={bike.model}
+                  className="h-full w-full object-cover"
+                />
+              ) : (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={mainSrc || primaryImage || bike.images?.[0] || PLACEHOLDER}
+                  alt={bike.model}
+                  className="h-full w-full object-cover"
+                  referrerPolicy="no-referrer"
+                  onError={() => setMainSrc(PLACEHOLDER)}
+                />
+              )}
+              {images.length > 1 && (
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+                  {images.map((img, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => setImageIndex(i)}
+                      className={`h-14 w-20 rounded-lg overflow-hidden border-2 transition-all ${
+                        i === imageIndex ? "border-primary" : "border-transparent opacity-70"
+                      }`}
+                    >
+                      <BikeImage
+                        src={img}
+                        alt=""
+                        className="h-full w-full object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
               {images.length > 1 && (
                 <>
                   <button

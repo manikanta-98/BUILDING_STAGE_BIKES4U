@@ -69,7 +69,37 @@ npm run dev   # http://localhost:3000
 - Showroom: `/` — bike cards from API, placeholder image when `images` are empty
 - Admin: `/admin` — dashboard, CRUD, mark sold/unsold (uses `NEXT_PUBLIC_ADMIN_KEY`)
 
-## 4. Production
+## 4. Authentication (Login / Signup)
+
+Backend auth API: `POST /api/auth/signup`, `POST /api/auth/login`, `GET /api/auth/me` (Bearer JWT).
+
+### Backend `.env` (add to `backend/.env`)
+
+```env
+JWT_SECRET=your-long-random-secret-at-least-32-chars
+JWT_EXPIRES_IN=7d
+ADMIN_EMAILS=admin@akbikes.com
+```
+
+### Create admin user (after MongoDB is running)
+
+```bash
+cd backend
+npm run seed-admin
+```
+
+Default credentials: `admin@akbikes.com` / `admin123` (override via `SEED_ADMIN_EMAIL`, `SEED_ADMIN_PASSWORD`).
+
+### Pages
+
+- Login: `http://localhost:3001/login`
+- Signup: `http://localhost:3001/signup`
+- Profile: `/profile` (after login)
+- Admin: `/admin` (requires login + `admin` role)
+
+Signup with an email listed in `ADMIN_EMAILS` receives the admin role automatically.
+
+## 5. Production
 
 - Set `MONGODB_URI`, `CORS_ORIGIN`, `ADMIN_KEY` on the API host
 - Set `NEXT_PUBLIC_API_URL` to your deployed API

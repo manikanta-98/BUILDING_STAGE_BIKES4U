@@ -1,0 +1,3 @@
+# Add bike photos here named by registration number:
+# TS12EY5770-1.jpg, TS12EY5770-2.jpg, ...
+# Then run: cd backend && npm run attach-images

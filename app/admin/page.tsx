@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import {
   Bike as BikeIcon,
   Loader2,
@@ -34,7 +35,9 @@ import {
 } from "@/components/ui/select"
 import { api, formatPrice } from "@/lib/api"
 import type { Bike as BikeType, BikeStats } from "@/lib/types"
-import { statusLabel } from "@/lib/bike-helpers"
+import { getBikeImages, normalizeImageUrl, PLACEHOLDER, statusLabel } from "@/lib/bike-helpers"
+import { BikeImage } from "@/components/bike-image"
+import { clearAdminSession, getAdminApiKey } from "@/lib/admin-session"
 
 const emptyForm: Partial<BikeType> = {
   id: undefined,
@@ -48,8 +51,8 @@ const emptyForm: Partial<BikeType> = {
 }
 
 export default function AdminPage() {
-  const [adminKey, setAdminKey] = useState("")
-  const [keyInput, setKeyInput] = useState("")
+  const router = useRouter()
+  const adminKey = getAdminApiKey()
   const [bikes, setBikes] = useState<BikeType[]>([])
   const [stats, setStats] = useState<BikeStats>({ total: 0, available: 0, sold: 0 })
   const [loading, setLoading] = useState(false)
@@ -59,16 +62,6 @@ export default function AdminPage() {
   const [editing, setEditing] = useState<Partial<BikeType> | null>(null)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
-
-  useEffect(() => {
-    const saved = localStorage.getItem("ak-bikes-admin-key")
-    if (saved) setAdminKey(saved)
-    const envKey = process.env.NEXT_PUBLIC_ADMIN_KEY
-    if (envKey && !saved) {
-      setAdminKey(envKey)
-      setKeyInput(envKey)
-    }
-  }, [])
 
   const loadBikes = useCallback(async () => {
     if (!adminKey) return
@@ -95,18 +88,12 @@ export default function AdminPage() {
   }, [adminKey, search, statusFilter])
 
   useEffect(() => {
-    if (adminKey) loadBikes()
-  }, [adminKey, loadBikes])
-
-  const login = () => {
-    localStorage.setItem("ak-bikes-admin-key", keyInput)
-    setAdminKey(keyInput)
-  }
+    loadBikes()
+  }, [loadBikes])
 
   const logout = () => {
-    localStorage.removeItem("ak-bikes-admin-key")
-    setAdminKey("")
-    setKeyInput("")
+    clearAdminSession()
+    router.push("/admin/login")
   }
 
   const openAdd = () => {
@@ -162,36 +149,6 @@ export default function AdminPage() {
     const next = bike.status === "unsold" ? "sold" : "unsold"
     await api.updateStatus(adminKey, bike.id, next)
     loadBikes()
-  }
-
-  if (!adminKey) {
-    return (
-      <div className="min-h-screen flex items-center justify-center p-4 bg-background">
-        <Card className="w-full max-w-md">
-          <CardHeader>
-            <CardTitle>AK Bikes Admin</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div>
-              <Label htmlFor="key">Admin Key</Label>
-              <Input
-                id="key"
-                type="password"
-                value={keyInput}
-                onChange={(e) => setKeyInput(e.target.value)}
-                placeholder="Enter ADMIN_KEY from backend .env"
-              />
-            </div>
-            <Button className="w-full" onClick={login}>
-              Enter Dashboard
-            </Button>
-            <Button variant="link" asChild className="w-full">
-              <Link href="/">Back to website</Link>
-            </Button>
-          </CardContent>
-        </Card>
-      </div>
-    )
   }
 
   return (
@@ -451,7 +408,21 @@ export default function AdminPage() {
                 />
               </div>
               <div>
-                <Label>Image URLs (add photos later)</Label>
+                <Label>Preview</Label>
+                <div className="mt-2 relative aspect-video max-w-xs rounded-lg overflow-hidden border bg-secondary">
+                  <BikeImage
+                    src={
+                      editing.images?.[0]?.trim()
+                        ? normalizeImageUrl(editing.images[0])
+                        : getBikeImages(editing as BikeType)[0] || PLACEHOLDER
+                    }
+                    alt={editing.model || "Bike"}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              </div>
+              <div>
+                <Label>Image URLs (or add files to public/Bikes/REG-1.jpg)</Label>
                 {(editing.images || ["", "", "", ""]).map((url, i) => (
                   <Input
                     key={i}

@@ -9,12 +9,16 @@
     "dev": "node --watch server.js",
     "import": "node src/scripts/importBikes.js",
     "attach-images": "node src/scripts/attachImages.js",
-    "update-json": "node src/scripts/updateInventoryJson.js"
+    "update-json": "node src/scripts/updateInventoryJson.js",
+    "seed-admin": "node src/scripts/seedAdmin.js",
+    "fix-image-urls": "node src/scripts/fixImageUrls.js"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.3",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1"

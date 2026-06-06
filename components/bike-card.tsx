@@ -1,13 +1,21 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Heart, MessageCircle, Calendar, Eye, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import type { Bike } from "@/lib/types"
 import { formatPrice, getWhatsAppLink } from "@/lib/api"
-import { getBikeImages, isAvailable, statusLabel } from "@/lib/bike-helpers"
+import {
+  getBikeImages,
+  getPrimaryBikeImage,
+  normalizeImageUrl,
+  PLACEHOLDER,
+  isAvailable,
+  statusLabel,
+} from "@/lib/bike-helpers"
+import { BikeImage } from "@/components/bike-image"
 
 interface BikeCardProps {
   bike: Bike
@@ -19,8 +27,21 @@ export function BikeCard({ bike, isHighlighted = false, onHighlight }: BikeCardP
   const [isWishlisted, setIsWishlisted] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const primaryFromApi = bike.images?.[0]?.trim()
+    ? normalizeImageUrl(bike.images[0])
+    : getPrimaryBikeImage(bike)
+  const [imgSrc, setImgSrc] = useState(primaryFromApi || PLACEHOLDER)
   const displayImages = getBikeImages(bike)
   const available = isAvailable(bike.status)
+
+  useEffect(() => {
+    const next = bike.images?.[0]?.trim()
+      ? normalizeImageUrl(bike.images[0])
+      : getPrimaryBikeImage(bike)
+    setImgSrc(next || PLACEHOLDER)
+    setImageLoaded(false)
+    setCurrentImageIndex(0)
+  }, [bike.id, bike.images])
 
   const handleWhatsApp = (e: React.MouseEvent) => {
     e.stopPropagation()
@@ -57,19 +78,34 @@ export function BikeCard({ bike, isHighlighted = false, onHighlight }: BikeCardP
         )}
 
         <div className="relative h-full w-full">
-          {displayImages.map((image, index) => (
+          {displayImages.length > 1 ? (
+            displayImages.map((image, index) => (
+              <BikeImage
+                key={`${image}-${index}`}
+                src={image}
+                alt={`${bike.model} - Photo ${index + 1}`}
+                className={`absolute inset-0 h-full w-full object-cover transition-all duration-500 ${
+                  index === currentImageIndex
+                    ? "opacity-100 scale-100"
+                    : "opacity-0 scale-105"
+                }`}
+                onLoad={() => index === currentImageIndex && setImageLoaded(true)}
+              />
+            ))
+          ) : (
+            // eslint-disable-next-line @next/next/no-img-element
             <img
-              key={index}
-              src={image}
-              alt={`${bike.model} - Photo ${index + 1}`}
-              className={`absolute inset-0 h-full w-full object-cover transition-all duration-500 ${
-                index === currentImageIndex
-                  ? "opacity-100 scale-100"
-                  : "opacity-0 scale-105"
-              }`}
-              onLoad={() => index === 0 && setImageLoaded(true)}
+              src={imgSrc || bike.images?.[0] || PLACEHOLDER}
+              alt={bike.model}
+              className="absolute inset-0 h-full w-full object-cover"
+              referrerPolicy="no-referrer"
+              onLoad={() => setImageLoaded(true)}
+              onError={() => {
+                setImgSrc(PLACEHOLDER)
+                setImageLoaded(true)
+              }}
             />
-          ))}
+          )}
         </div>
 
         {displayImages.length > 1 && (

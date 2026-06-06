@@ -54,11 +54,16 @@ let matched = 0;
 const updated = bikes.map((bike) => {
   const key = normalizeNumber(bike.number);
   const found = key && imageMap.has(key) ? imageMap.get(key) : [];
-  if (found.length > 0) matched++;
-  return {
-    ...bike,
-    images: found.length > 0 ? padImages(found) : ["", "", "", ""],
-  };
+  const existing = (bike.images || []).filter((u) => String(u).trim() !== "");
+  if (found.length > 0) {
+    matched++;
+    return { ...bike, images: padImages(found) };
+  }
+  // Keep admin-pasted URLs; don't wipe when no local file match
+  if (existing.length > 0) {
+    return { ...bike, images: padImages(existing) };
+  }
+  return { ...bike, images: ["", "", "", ""] };
 });
 
 fs.writeFileSync(jsonPath, JSON.stringify(updated, null, 2) + "\n", "utf8");

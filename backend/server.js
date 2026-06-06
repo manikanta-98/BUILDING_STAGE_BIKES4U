@@ -7,13 +7,14 @@ import { fileURLToPath } from "url";
 import { connectDB } from "./src/config/db.js";
 import bikeRoutes from "./src/routes/bikeRoutes.js";
 import sellRoutes from "./src/routes/sellRoutes.js";
+import authRoutes from "./src/routes/authRoutes.js";
 import { notFound, errorHandler } from "./src/middleware/errorHandler.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 const allowedOrigins = (
   process.env.CORS_ORIGIN ||
@@ -26,7 +27,10 @@ const allowedOrigins = (
 app.use(
   cors({
     origin(origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
+      const isLocalhost =
+        origin &&
+        /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin);
+      if (!origin || allowedOrigins.includes(origin) || isLocalhost) {
         callback(null, true);
       } else {
         callback(new Error(`CORS blocked origin: ${origin}`));
@@ -44,6 +48,7 @@ app.get("/api/health", (req, res) => {
   res.json({ success: true, message: "AK Bikes API is running" });
 });
 
+app.use("/api/auth", authRoutes);
 app.use("/api/bikes", bikeRoutes);
 app.use("/api/sell", sellRoutes);
 

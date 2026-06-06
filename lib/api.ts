@@ -1,4 +1,5 @@
 import type { Bike, BikesResponse } from "./types";
+import { authHeaders, getToken } from "./auth";
 
 const API_URL = (
   process.env.NEXT_PUBLIC_API_URL || "http://localhost:5001/api"
@@ -14,6 +15,7 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
       ...options,
       headers: {
         "Content-Type": "application/json",
+        ...authHeaders(),
         ...options.headers,
       },
       cache: "no-store",
@@ -38,8 +40,11 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
   return data as T;
 }
 
-function adminHeaders(key: string) {
-  return { "x-admin-key": key };
+function adminHeaders(key?: string) {
+  const token = getToken();
+  if (token) return authHeaders();
+  if (key) return { "x-admin-key": key };
+  return {};
 }
 
 export const api = {
@@ -51,27 +56,27 @@ export const api = {
   getBike: (id: number | string) =>
     request<{ success: boolean; data: Bike }>(`/bikes/${id}`),
 
-  createBike: (key: string, body: Partial<Bike>) =>
+  createBike: (key: string | undefined, body: Partial<Bike>) =>
     request<{ success: boolean; data: Bike }>("/bikes", {
       method: "POST",
       headers: adminHeaders(key),
       body: JSON.stringify(body),
     }),
 
-  updateBike: (key: string, id: number, body: Partial<Bike>) =>
+  updateBike: (key: string | undefined, id: number, body: Partial<Bike>) =>
     request<{ success: boolean; data: Bike }>(`/bikes/${id}`, {
       method: "PUT",
       headers: adminHeaders(key),
       body: JSON.stringify(body),
     }),
 
-  deleteBike: (key: string, id: number) =>
+  deleteBike: (key: string | undefined, id: number) =>
     request<{ success: boolean }>(`/bikes/${id}`, {
       method: "DELETE",
       headers: adminHeaders(key),
     }),
 
-  updateStatus: (key: string, id: number, status: "unsold" | "sold") =>
+  updateStatus: (key: string | undefined, id: number, status: "unsold" | "sold") =>
     request<{ success: boolean; data: Bike }>(`/bikes/${id}/status`, {
       method: "PATCH",
       headers: adminHeaders(key),
